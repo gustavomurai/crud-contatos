@@ -1,0 +1,234 @@
+:root{
+  --bg:#0f1320;
+  --card:#151a2e;
+  --text:#e8ecf1;
+  --muted:#a3acc3;
+  --accent:#6366f1;
+  --ok:#10b981;
+  --danger:#ef4444;
+  --warning:#f59e0b;
+  --border:#27304a;
+  --shadow:0 8px 24px rgba(0,0,0,.25);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0; 
+  font-family:system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, 'Helvetica Neue', Arial, 'Noto Sans', 'Apple Color Emoji', 'Segoe UI Emoji';
+  background:linear-gradient(120deg,#0b1024,#0e1636 60%, #10173d);
+  color:var(--text);
+}
+
+/* Topo */
+.topbar{
+  padding:24px 16px; 
+  text-align:center
+}
+.topbar h1{
+  margin:0 0 6px 0; 
+  font-size:28px
+}
+.topbar p{
+  margin:0; 
+  color:var(--muted)
+}
+
+/* Container principal */
+.container{
+  max-width:1000px; 
+  margin:0 auto; 
+  padding:16px; 
+  display:grid; 
+  gap:16px
+}
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  box-shadow:var(--shadow);
+}
+.card h2{
+  margin:0 0 12px 0
+}
+
+/* Formulário */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+@media (max-width: 840px){
+  .grid{grid-template-columns:1fr}
+}
+.field label{
+  display:block; 
+  font-weight:600; 
+  margin-bottom:6px
+}
+.field input{
+  width:100%; 
+  padding:10px 12px; 
+  border-radius:10px; 
+  border:1px solid var(--border);
+  background:#0f1430; 
+  color:var(--text); 
+  outline:none;
+}
+.field input:focus{
+  border-color:var(--accent); 
+  box-shadow:0 0 0 3px rgba(99,102,241,.25)
+}
+.help{
+  color:var(--muted); 
+  font-size:12px; 
+  margin-top:6px; 
+  display:block
+}
+
+.actions{
+  display:flex; 
+  gap:8px; 
+  margin-top:12px; 
+  flex-wrap:wrap
+}
+button{
+  border:0; 
+  padding:10px 14px; 
+  border-radius:10px; 
+  cursor:pointer; 
+  font-weight:600;
+}
+#btn-salvar{
+  background:var(--ok); 
+  color:#0b1224
+}
+.secondary{
+  background:var(--warning); 
+  color:#0b1224
+}
+.ghost{
+  background:transparent; 
+  border:1px solid var(--border); 
+  color:var(--muted)
+}
+button:focus{
+  outline:3px solid rgba(99,102,241,.3)
+}
+
+/* Lista / Tabela */
+.list-header{
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  gap:12px; 
+  flex-wrap:wrap
+}
+.tools{
+  display:flex; 
+  gap:8px; 
+  align-items:center; 
+  flex-wrap:wrap;
+}
+.tools input, .tools select{
+  padding:10px 12px; 
+  border-radius:10px; 
+  border:1px solid var(--border);
+  background:#0f1430; 
+  color:var(--text)
+}
+
+/* Botão pequeno (para Importar/Exportar) */
+.btn{
+  padding:8px 10px; 
+  border-radius:8px; 
+  font-weight:600; 
+  cursor:pointer; 
+  border:0
+}
+.btn.small{ padding:8px 12px; }
+.btn-edit{
+  background:var(--accent); 
+  color:white
+}
+.btn-del{
+  background:var(--danger); 
+  color:white
+}
+.btn:focus{
+  outline:3px solid rgba(255,255,255,.15)
+}
+
+.table-wrap{
+  overflow:auto
+}
+.table{
+  width:100%; 
+  border-collapse:collapse; 
+  min-width:680px
+}
+.table th, .table td{
+  border-bottom:1px solid var(--border);
+  text-align:left; 
+  padding:12px 10px
+}
+.table thead th{
+  color:var(--muted); 
+  font-weight:700
+}
+.col-acoes{
+  width:180px
+}
+
+.empty{
+  color:var(--muted); 
+  margin:10px 0
+}
+
+/* Rodapé */
+.footer{
+  padding:24px 16px; 
+  text-align:center; 
+  color:var(--muted)
+}
+
+/* Estilo dos links do rodapé */
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color .2s;
+}
+.footer a:hover {
+  color: var(--ok);
+}
+
+/* Contador (Total/Visíveis) */
+.stats{
+  margin:8px 0 0 0;
+  color: var(--muted);
+  font-weight: 600;
+  display: flex;
+  gap: 16px;
+}
+
+/* ===== Estilo do quadrado em volta do título/subtítulo ===== */
+.title-box {
+  display: inline-block;              /* mantém o tamanho justo ao conteúdo */
+  border: 2px solid #fff;             /* borda branca */
+  border-radius: 16px;                /* cantos arredondados */
+  padding: 16px 32px;                 /* espaço interno */
+  background: rgba(255, 255, 255, 0.05); /* leve fundo transparente */
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+.title-box h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.title-box p {
+  margin: 6px 0 0 0;
+  color: var(--muted);
+}

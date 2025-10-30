@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CRUD de Contatos — Gustavo Cerqueira Murai</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+  <div class="title-box">
+    <h1>CRUD de Contatos</h1>
+    <p>HTML5 + CSS3 + JavaScript (LocalStorage)</p>
+  </div>
+</header>
+
+  <main class="container">
+    <!-- FORMULÁRIO -->
+    <section class="card">
+      <h2>Novo contato</h2>
+      <!-- role="form" e labels associadas melhoram acessibilidade -->
+      <form id="form-contato" aria-label="Formulário de cadastro de contatos">
+        <!-- Campo oculto para armazenar o id durante edições -->
+        <input type="hidden" id="contato-id">
+
+        <div class="grid">
+          <div class="field">
+            <label for="nome">Nome <span aria-hidden="true">*</span></label>
+            <input id="nome" name="nome" type="text" placeholder="Ex: Maria Silva" required>
+            <small class="help">Informe o nome completo.</small>
+          </div>
+
+          <div class="field">
+            <label for="email">E-mail <span aria-hidden="true">*</span></label>
+            <input id="email" name="email" type="email" placeholder="Ex: maria@email.com" required>
+            <small class="help">Informe um e-mail válido.</small>
+          </div>
+
+          <div class="field">
+            <label for="telefone">Telefone</label>
+            <input 
+              id="telefone" 
+              name="telefone" 
+              type="tel" 
+              placeholder="(00) 00000-0000" 
+              inputmode="numeric" 
+              autocomplete="tel" 
+              aria-describedby="tel-dica">
+            <small id="tel-dica" class="help">Digite apenas os números — o formato será aplicado automaticamente.</small>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="btn-salvar" type="submit">Salvar</button>
+          <button id="btn-cancelar" type="button" class="secondary" hidden>Cancelar edição</button>
+          <button id="btn-limpar" type="reset" class="ghost">Limpar</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- LISTA / TABELA -->
+    <section class="card">
+      <div class="list-header">
+        <h2>Contatos</h2>
+        <div class="tools">
+          <input id="busca" type="search" placeholder="Buscar por nome ou e-mail" aria-label="Buscar contatos">
+          <select id="ordenacao" aria-label="Ordenar contatos">
+            <option value="nome-asc">Nome (A–Z)</option>
+            <option value="nome-desc">Nome (Z–A)</option>
+            <option value="email-asc">E-mail (A–Z)</option>
+            <option value="email-desc">E-mail (Z–A)</option>
+          </select>
+
+          <!-- Importar / Exportar (seguro e simples) -->
+          <label class="btn small ghost" title="Importar JSON">
+            Importar
+            <input id="input-importar" type="file" accept=".json" hidden>
+          </label>
+          <button id="btn-exportar" class="btn small" title="Exportar JSON">Exportar</button>
+        </div>
+      </div>
+
+      <!-- Contador -->
+      <div class="stats">
+        <span>Total: <strong id="stat-total">0</strong></span>
+        <span>Visíveis: <strong id="stat-visiveis">0</strong></span>
+      </div>
+
+      <div class="table-wrap" role="region" aria-label="Tabela de contatos">
+        <table class="table" id="tabela-contatos">
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Telefone</th>
+              <th class="col-acoes">Ações</th>
+            </tr>
+          </thead>
+          <tbody id="tbody">
+            <!-- Linhas geradas via JS -->
+          </tbody>
+        </table>
+        <p id="vazio" class="empty" hidden>Nenhum contato cadastrado.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>
+      Projeto desenvolvido por <strong>Gustavo Cerqueira Murai</strong> —
+      <a href="https://github.com/gustavomurai" target="_blank" rel="noopener noreferrer">GitHub</a> |
+      <a href="https://www.linkedin.com/in/gustavomurai/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </small>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
