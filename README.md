@@ -36,12 +36,3 @@ Desenvolvido com foco em **boas práticas, usabilidade e visual limpo**, este pr
 | **GitHub Pages** | Hospedagem gratuita do projeto online |
 
 ---
-
-## 📂 Estrutura de arquivos
-
-📁 crud-contatos/
-│
-├── index.html → Estrutura principal da aplicação
-├── style.css → Estilos e responsividade
-├── script.js → Lógica do CRUD e funcionalidades
-└── README.md → Documentação do projeto
