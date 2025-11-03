@@ -3,116 +3,110 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CRUD de Contatos — Gustavo Cerqueira Murai</title>
+  <title>Contato CRUD — Gustavo Cerqueira Murai</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
-  <div class="title-box">
-    <h1>CRUD de Contatos</h1>
-    <p>HTML5 + CSS3 + JavaScript (LocalStorage)</p>
-  </div>
-</header>
+    <div class="hero">
+      <h1>CONTATO CRUD</h1>
+      <p>HTML5 + CSS3 + JavaScript ( LocalStorage )</p>
+    </div>
+
+    <div class="toolbar">
+      <div class="search-wrap">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z"
+                fill="none" stroke="#9ca3af" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <input id="busca" type="search" placeholder="Procurar por nome ou email" aria-label="Buscar contatos">
+      </div>
+
+      <select id="ordenacao" aria-label="Ordenar contatos" class="pill">
+        <option value="nome-asc">Nome (A–Z)</option>
+        <option value="nome-desc">Nome (Z–A)</option>
+        <option value="email-asc">E-mail (A–Z)</option>
+        <option value="email-desc">E-mail (Z–A)</option>
+      </select>
+
+      <!-- Botão na toolbar (desktop) -->
+      <button id="btn-abrir-modal" class="btn primary">+ Contato</button>
+
+      <button id="btn-exportar" class="btn secondary">Export</button>
+    </div>
+  </header>
 
   <main class="container">
-    <!-- FORMULÁRIO -->
-    <section class="card">
-      <h2>Novo contato</h2>
-      <!-- role="form" e labels associadas melhoram acessibilidade -->
-      <form id="form-contato" aria-label="Formulário de cadastro de contatos">
-        <!-- Campo oculto para armazenar o id durante edições -->
-        <input type="hidden" id="contato-id">
-
-        <div class="grid">
-          <div class="field">
-            <label for="nome">Nome <span aria-hidden="true">*</span></label>
-            <input id="nome" name="nome" type="text" placeholder="Ex: Maria Silva" required>
-            <small class="help">Informe o nome completo.</small>
-          </div>
-
-          <div class="field">
-            <label for="email">E-mail <span aria-hidden="true">*</span></label>
-            <input id="email" name="email" type="email" placeholder="Ex: maria@email.com" required>
-            <small class="help">Informe um e-mail válido.</small>
-          </div>
-
-          <div class="field">
-            <label for="telefone">Telefone</label>
-            <input 
-              id="telefone" 
-              name="telefone" 
-              type="tel" 
-              placeholder="(00) 00000-0000" 
-              inputmode="numeric" 
-              autocomplete="tel" 
-              aria-describedby="tel-dica">
-            <small id="tel-dica" class="help">Digite apenas os números — o formato será aplicado automaticamente.</small>
-          </div>
-        </div>
-
-        <div class="actions">
-          <button id="btn-salvar" type="submit">Salvar</button>
-          <button id="btn-cancelar" type="button" class="secondary" hidden>Cancelar edição</button>
-          <button id="btn-limpar" type="reset" class="ghost">Limpar</button>
-        </div>
-      </form>
-    </section>
-
-    <!-- LISTA / TABELA -->
-    <section class="card">
-      <div class="list-header">
-        <h2>Contatos</h2>
-        <div class="tools">
-          <input id="busca" type="search" placeholder="Buscar por nome ou e-mail" aria-label="Buscar contatos">
-          <select id="ordenacao" aria-label="Ordenar contatos">
-            <option value="nome-asc">Nome (A–Z)</option>
-            <option value="nome-desc">Nome (Z–A)</option>
-            <option value="email-asc">E-mail (A–Z)</option>
-            <option value="email-desc">E-mail (Z–A)</option>
-          </select>
-
-          <!-- Importar / Exportar (seguro e simples) -->
-          <label class="btn small ghost" title="Importar JSON">
-            Importar
-            <input id="input-importar" type="file" accept=".json" hidden>
-          </label>
-          <button id="btn-exportar" class="btn small" title="Exportar JSON">Exportar</button>
-        </div>
-      </div>
-
-      <!-- Contador -->
-      <div class="stats">
-        <span>Total: <strong id="stat-total">0</strong></span>
-        <span>Visíveis: <strong id="stat-visiveis">0</strong></span>
-      </div>
-
-      <div class="table-wrap" role="region" aria-label="Tabela de contatos">
-        <table class="table" id="tabela-contatos">
-          <thead>
-            <tr>
-              <th>Nome</th>
-              <th>E-mail</th>
-              <th>Telefone</th>
-              <th class="col-acoes">Ações</th>
-            </tr>
-          </thead>
-          <tbody id="tbody">
-            <!-- Linhas geradas via JS -->
-          </tbody>
-        </table>
-        <p id="vazio" class="empty" hidden>Nenhum contato cadastrado.</p>
-      </div>
+    <section class="card table-card">
+      <table class="table" id="tabela-contatos" role="grid" aria-label="Tabela de contatos">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>E-mail</th>
+            <th>Telefone</th>
+            <th class="col-acoes">Ação</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <p id="vazio" class="empty" hidden>Nenhum contato cadastrado.</p>
+      <p id="resumo" class="summary">Mostrando 0 de 0 contatos</p>
     </section>
   </main>
 
   <footer class="footer">
     <small>
       Projeto desenvolvido por <strong>Gustavo Cerqueira Murai</strong> —
-      <a href="https://github.com/gustavomurai" target="_blank" rel="noopener noreferrer">GitHub</a> |
-      <a href="https://www.linkedin.com/in/gustavomurai/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://github.com/gustavomurai" target="_blank" rel="noopener">Github</a> |
+      <a href="https://www.linkedin.com/in/gustavomurai/" target="_blank" rel="noopener">Linkedin</a>
     </small>
   </footer>
 
+  <!-- FAB (mobile) -->
+  <button class="fab" id="fab-add" aria-label="Novo contato">+</button>
+
+  <!-- MODAL -->
+  <div id="modal" class="modal" aria-hidden="true" aria-labelledby="titulo-modal" role="dialog">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-content" role="document">
+      <header class="modal-header">
+        <h2 id="titulo-modal">Novo contato</h2>
+        <button class="icon-btn" id="btn-fechar" aria-label="Fechar">
+          <!-- SVG com stroke/linhas visíveis -->
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </header>
+
+      <form id="form-modal" class="modal-body" aria-label="Formulário do contato">
+        <input type="hidden" id="contato-id">
+
+        <label class="field">
+          <span>Nome *</span>
+          <input id="nome" name="nome" type="text" placeholder="Ex: Maria Silva" required>
+        </label>
+
+        <label class="field">
+          <span>E-mail *</span>
+          <input id="email" name="email" type="email" placeholder="Ex: maria@email.com" required>
+        </label>
+
+        <label class="field">
+          <span>Telefone *</span>
+          <input id="telefone" name="telefone" type="tel" inputmode="numeric" placeholder="(00) 00000-0000" autocomplete="tel" required>
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" class="btn ghost" id="btn-cancelar">Cancelar</button>
+          <button type="submit" class="btn primary">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" role="status" aria-live="polite"></div>
   <script src="script.js"></script>
 </body>
 </html>
