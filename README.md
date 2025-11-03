@@ -1,4 +1,4 @@
-# 🌐 [Acesse o projeto online clicando aqui](https://gustavomurai.github.io/crud-contatos/)
+
 
 ---
 
