@@ -1,38 +1,48 @@
+# 📇 CRUD de Contatos — Gustavo Cerqueira Murai
 
+<img src="https://gustavomurai.github.io/crud-contatos/imagens/adicionar.svg" width="60" align="right" />
 
----
-
-## 📌 CRUD de Contatos — Projeto de Gerenciamento Local com HTML, CSS e JS
-
-Um sistema **CRUD (Create, Read, Update, Delete)** simples e funcional, feito com **HTML5, CSS3 e JavaScript puro**, utilizando **LocalStorage** para persistência de dados — ou seja, os contatos permanecem salvos mesmo após fechar o navegador.
-
-Desenvolvido com foco em **boas práticas, usabilidade e visual limpo**, este projeto é ideal para quem está aprendendo desenvolvimento web front-end e quer entender os fundamentos de manipulação de dados no navegador.
+Aplicação **CRUD (Create, Read, Update, Delete)** moderna e responsiva, desenvolvida com **HTML5**, **CSS3** e **JavaScript (LocalStorage)**.  
+Permite cadastrar, visualizar, editar e excluir contatos de forma prática e intuitiva — com modal flutuante e design minimalista.
 
 ---
 
-## 🚀 Funcionalidades
-
-✅ **Adicionar contatos** com nome, e-mail e telefone (formato automático)  
-✅ **Editar e atualizar** contatos existentes  
-✅ **Excluir** contatos com confirmação  
-✅ **Busca dinâmica** com debounce (sem travar durante a digitação)  
-✅ **Ordenação** por nome ou e-mail (A–Z / Z–A)  
-✅ **Contador automático** de total e contatos visíveis  
-✅ **Exportar contatos** para arquivo `.json`  
-✅ **Importar contatos** de arquivo `.json`  
-✅ **Máscara automática de telefone** ((11) 90000-0000)  
-✅ **Totalmente responsivo** (desktop, tablet e mobile)
+## 🌐 Demonstração Online
+🔗 **Acesse o projeto:**  
+➡️ [https://gustavomurai.github.io/crud-contatos/](https://gustavomurai.github.io/crud-contatos/)
 
 ---
 
-## 🖥️ Tecnologias utilizadas
-
-| Tecnologia | Descrição |
-|-------------|------------|
-| **HTML5** | Estrutura da aplicação |
-| **CSS3** | Estilização responsiva e moderna |
-| **JavaScript (ES6+)** | Lógica de CRUD, máscara de telefone e persistência local |
-| **LocalStorage API** | Armazenamento dos contatos no navegador |
-| **GitHub Pages** | Hospedagem gratuita do projeto online |
+## 🧠 Tecnologias Utilizadas
+- **HTML5** — estrutura semântica e acessível  
+- **CSS3** — layout responsivo e tema escuro moderno  
+- **JavaScript** — lógica do CRUD e persistência via LocalStorage  
+- **SF Pro Display** — tipografia elegante e legível  
+- **JSON Export/Import** — para salvar e restaurar contatos
 
 ---
+
+## ✨ Principais Funcionalidades
+| Função | Descrição |
+|:--|:--|
+| ➕ **Adicionar contato** | Botão flutuante abre um modal para inserir novo contato |
+| 🔍 **Busca dinâmica** | Campo de pesquisa com debounce para filtrar nome, e-mail ou telefone |
+| ↕ **Ordenação** | Ordena por nome ou e-mail (A–Z / Z–A) |
+| 🖋️ **Editar contato** | Permite atualizar dados diretamente no modal |
+| ❌ **Excluir contato** | Remove contato com confirmação |
+| 💾 **Exportar/Importar JSON** | Backup e restauração simples |
+| 📱 **Design Responsivo** | Se adapta automaticamente a dispositivos móveis |
+| ⚡ **Feedback visual (hover/toast)** | Interações modernas e suaves |
+
+---
+
+🧑‍💻 Autor
+
+Gustavo Cerqueira Murai
+🎨 UX/UI Designer & Front-End Developer
+
+
+🪪 Licença
+
+Este projeto é de uso livre para fins educacionais e portfólio.
+© 2025 Gustavo Cerqueira Murai
