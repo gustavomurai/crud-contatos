@@ -9,7 +9,7 @@ Permite cadastrar, visualizar, editar e excluir contatos de forma prática e int
 
 ## 🌐 Demonstração Online
 🔗 **Acesse o projeto:**  
-➡️ [https://gustavomurai.github.io/crud-contatos/](https://gustavomurai.github.io/crud-contatos/)
+➡️ [https://gustavomurai.github.io/crud-contatos/](https://gustavomurai.github.io/Aplicativo-Crud/)
 
 ---
 
